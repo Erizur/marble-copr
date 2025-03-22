@@ -24,7 +24,7 @@ if (!downloadUrl) throw new Error('Failed to fetch download URL');
 
 const version = downloadUrl;
 
-const specFile = await fs.readFile('../firefox-esr.spec', 'utf8');
+const specFile = await fs.readFile('../marble.spec', 'utf8');
 
 /**
  *
@@ -48,6 +48,6 @@ function specUpdater(content, version) {
 }
 
 await fs.writeFile(
-  '../firefox-esr.spec',
+  '../marble.spec',
   specUpdater(specFile, version),
 );
