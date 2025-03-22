@@ -5,7 +5,7 @@
 %global             debug_package %{nil}
 
 Name:               marble
-Version:            G1-b2
+Version:            G1b2
 Release:            1%{?dist}
 Summary:            Marble Web browser
 
