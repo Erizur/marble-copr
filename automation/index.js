@@ -19,7 +19,7 @@ const downloadUrl = await fetch(
     compress: true,
     redirect: 'manual',
   },
-).then((res) => res.json()[tag_name]);
+).then((res) => res.json()).then((data) => data.tag_name);
 if (!downloadUrl) throw new Error('Failed to fetch download URL');
 
 const version = downloadUrl;
