@@ -40,7 +40,7 @@ sudo dnf check-update
 3. Execute the following command to install the package.
 
 ```Shell
-sudo dnf install marble
+sudo dnf install marble-browser
 ```
 
 4. Launch the application from the Application Menu or execute following command in terminal.
