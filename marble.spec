@@ -1,17 +1,17 @@
-%global             source_name marble
+%global             source_name marble-browser
 %global             application_name marble
 %global             full_name marble
 %global             internal_name marble
 %global             debug_package %{nil}
 
-Name:               marble
+Name:               marble-browser
 Version:            G1b2
 Release:            1%{?dist}
 Summary:            Marble Web browser
 
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://github.com/NetworkNeighborhood/Marble
-Source0:			https://github.com/NetworkNeighborhood/Marble/releases/download/%{version}/marble-%{version}.en-US.linux-x86_64.tar.bz2
+Source0:			      https://github.com/NetworkNeighborhood/Marble/releases/download/%{version}/marble-%{version}.en-US.linux-x86_64.tar.bz2
 Source1:            %{internal_name}.desktop
 Source2:            policies.json
 Source3:            %{internal_name}
