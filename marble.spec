@@ -1,7 +1,7 @@
 %global             source_name marble-browser
 %global             application_name marble
 %global             full_name marble
-%global             internal_name marble
+%global             internal_name marble-browser
 %global             debug_package %{nil}
 
 Name:               marble-browser
@@ -33,7 +33,7 @@ Bugs related to this package should be reported at this GitHub project:
 <https://github.com/erizur/marble-copr/issues/>
 
 %prep
-%setup -q -n %{source_name}
+%setup -q -n %{application_name}
 
 %install
 %__rm -rf %{buildroot}
@@ -58,13 +58,13 @@ Bugs related to this package should be reported at this GitHub project:
 gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 
 %files
-%{_datadir}/applications/%{internal_name}.desktop
+%{_datadir}/applications/%{application_name}.desktop
 %{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
-%{_bindir}/%{internal_name}
+%{_bindir}/%{application_name}
 /opt/%{application_name}
 
 %changelog
