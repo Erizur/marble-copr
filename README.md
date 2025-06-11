@@ -3,7 +3,7 @@
 [![⚡️ Powered By: Copr](https://img.shields.io/badge/⚡️_Powered_by-COPR-blue?style=flat-square)](https://copr.fedorainfracloud.org/)
 ![📦 Architecture: x86_64](https://img.shields.io/badge/📦_Architecture-x86__64-blue?style=flat-square)
 [![Latest Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=builds.latest.source_package.version&url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%3Fownername%3Derizur%26projectname%3Dmarble%26packagename%3Dmarble-browser%26with_latest_build%3DTrue&style=flat-square&logo=circle&logoColor=blue)](https://copr.fedorainfracloud.org/coprs/erizur/marble/package/marble-browser/)
-[![Copr build status](https://copr.fedorainfracloud.org/coprs/erizur/marble/package/marble/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/erizur/marble/package/marble-browser/)
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/erizur/marble/package/marble-browser/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/erizur/marble/package/marble-browser/)
 
 An unofficial RPM package of [Marble Browser](https://github.com/NetworkNeighborhood/Marble) designed for [Fedora](https://getfedora.org).
 This repo was based on the original RPM packaging system created by [the4runner](https://github.com/the4runner/firefox-dev/) for the [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer).
