@@ -25,29 +25,37 @@ if (!downloadUrl) throw new Error('Failed to fetch download URL');
 const version = downloadUrl;
 
 const specFile = await fs.readFile('../marble.spec', 'utf8');
-
 /**
  *
  * @param {string} content
- * @param {string} version
+ * @param {string} tag
  */
-function specUpdater(content, version) {
-  if (!content || !version) throw new Error('Invalid content or version');
+function specUpdater(content, tag) {
+  if (!content || !tag) throw new Error('Invalid content or tag');
   const lines = content.split('\n');
-  const versionIndex = lines.findIndex((val) => val.startsWith('Version:'));
-  if (versionIndex < 0) throw new Error('Failed to parse version line from spec file');
-  const specVersion = lines[versionIndex].match(/\d.*$/);
-  if (specVersion == null) throw new Error('Failed to parse version from spec file');
-  if (version != specVersion) {
-    const releaseIndex = lines.findIndex((val) => val.startsWith('Release:'));
-    if (releaseIndex < 0) throw new Error('Failed to parse release from spec file');
-    lines[releaseIndex] = `Release:${whiteSpaces(12)}1%{?dist}`
+
+  let upstreamIdx = lines.findIndex((v) => v.startsWith('%global             upstream_tag '));
+  const upstreamLine = `%global             upstream_tag ${tag}`;
+  if (upstreamIdx >= 0) {
+    lines[upstreamIdx] = upstreamLine;
+  } else {
+    const debugIdx = lines.findIndex((v) => v.startsWith('%global             debug_package '));
+    const insertAt = debugIdx >= 0 ? debugIdx + 1 : 0;
+    lines.splice(insertAt, 0, upstreamLine);
   }
-  lines[versionIndex] = `Version:${whiteSpaces(12)}${version}`;
+  
+  const versionIndex = lines.findIndex((v) => v.startsWith('Version:'));
+  if (versionIndex < 0) throw new Error('Failed to parse version line from spec file');
+
+  const rpmVersion = toRpmVersion(tag);
+  const currentVersion = lines[versionIndex].replace(/^Version:\s*/, '').trim();
+
+  if (currentVersion !== rpmVersion) {
+    const releaseIndex = lines.findIndex((v) => v.startsWith('Release:'));
+    if (releaseIndex < 0) throw new Error('Failed to parse release from spec file');
+    lines[releaseIndex] = `Release:${whiteSpaces(12)}1%{?dist}`;
+  }
+
+  lines[versionIndex] = `Version:${whiteSpaces(12)}${rpmVersion}`;
   return lines.join('\n');
 }
-
-await fs.writeFile(
-  '../marble.spec',
-  specUpdater(specFile, version),
-);
