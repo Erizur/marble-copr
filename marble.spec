@@ -3,10 +3,10 @@
 %global             full_name marble
 %global             internal_name marble-browser
 %global             debug_package %{nil}
-%global             upstream_tag G2-b1.1
+%global             upstream_tag G2.0
 
 Name:               marble-browser
-Version:            G2b1.1
+Version:            G2.0
 Release:            1%{?dist}
 Summary:            Marble Web browser
 
