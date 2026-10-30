@@ -28,7 +28,7 @@ Requires(post):     gtk-update-icon-cache
 Marble is a browser based on Mozilla Firefox (more specifically, the ESR variant) that aims to restore the Photon style & layout, while adding removed native styling features for various platforms.
 
 Bugs related to Firefox should be reported directly to Network Neighborhood: 
-<https://github.com/NetworkNeighborhood/Marble/issues/>
+<https://github.com/Erizur/Marble/issues/>
 
 Bugs related to this package should be reported at this GitHub project:
 <https://github.com/erizur/marble-copr/issues/>
